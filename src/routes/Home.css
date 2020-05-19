@@ -1,0 +1,50 @@
+.root {
+  width: 100%;
+  height: 100vh;
+  background-color: snow;
+  text-align: center;
+  font-family: "Nanum Gothic";
+  font-size: 18px;
+  font-weight: 500;
+}
+.root .title {
+  text-align: center;
+  padding: 2rem;
+  background-color: #222222;
+}
+.root .title p {
+  margin-left: 10rem;
+  margin-right: 10rem;
+  color: white;
+}
+.root .cloudContainer {
+  background-color: snow;
+}
+.root .cloudContainer h2 {
+  padding: 1rem;
+}
+.root .cloudContainer .cloud {
+  border: 1px solid rgba(169, 169, 169, 0.5);
+  width: 572px;
+  margin: 0 0 3rem 0;
+}
+.navBlock {
+  background-color: white;
+  color: black;
+  font-family: in;
+  font-size: 1.5rem;
+  padding: 4rem 1.5rem 1rem 1.5rem;
+}
+.line {
+  margin: 1rem auto 0;
+  width: 5rem;
+  height: 0.1rem;
+  border-top: 3px solid #0f4c81;
+}
+/* .category * {
+  font-weight: 500;
+} */
+.imageContainer:hover * {
+  transform: scale(1.2);
+  transition: transform 0.5s;
+}
