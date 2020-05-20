@@ -127,7 +127,7 @@ class Datafield extends React.Component {
     // render data
     const filteredComponents = (data) => {
       data = data.filter((d) => {
-        return d._source.title.indexOf(this.state.searchKeyword) > -1;
+        return d._source.visualization.title.indexOf(this.state.searchKeyword) > -1;
       });
       return data.map((d, index) => {
         return (
@@ -136,7 +136,6 @@ class Datafield extends React.Component {
             number={index}
             _id={d._id}
             // _score={d._score}
-            _type={d._type}
             _source={d._source}
           />
         );
