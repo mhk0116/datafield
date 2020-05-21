@@ -6,15 +6,28 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 
 function Data({ number, _id, _score, _source }) {
+  const title = _source.visualization.title;
   const type = JSON.parse(_source.visualization.visState).type;
   const description = _source.visualization.description;
-  console.log(description.length);
+  const id = _id.slice(14);
+  // console.log(_id.slice(14));
   return (
     <TableRow className="datarow">
       <TableCell>{number}</TableCell>
       <TableCell>
-        <Link to={`/${_source.type}/${_id}`} className="Link">
-          {_source.visualization.title}
+        <Link
+          to={{
+            pathname: `/${_source.type}/${id}`,
+            state: {
+              id: id,
+              type: type,
+              description: description,
+              title: title,
+            },
+          }}
+          className="Link"
+        >
+          {title}
         </Link>
       </TableCell>
       <TableCell>

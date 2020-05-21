@@ -1,0 +1,36 @@
+.chartRoot {
+  width: 100%;
+  height: 100vh;
+  background-color: #fafafa;
+  /* display: flex; */
+  text-align: center;
+}
+.chartHeader {
+  margin: 5rem auto 0;
+  width: 800px;
+  align-items: center;
+  background-color: white;
+  border: 1px solid rgba(169, 169, 169, 0.5);
+  display: flex;
+  justify-content: space-between;
+  align-content: space-around;
+}
+.chartTitle {
+  margin: 0 2rem;
+  font-weight: 500;
+}
+.chartType {
+  margin-right: 2rem;
+}
+.chartDescription {
+  font-family: "Nanum Gothic";
+  width: 800px;
+  margin: 0 auto;
+}
+.chartDescription h2,
+p {
+  text-align: left;
+}
+.goBack {
+  padding-bottom: 2rem;
+}
