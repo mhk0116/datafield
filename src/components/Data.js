@@ -5,7 +5,10 @@ import PropTypes from "prop-types";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 
-function Data({ number, _id, _score, _source}) {
+function Data({ number, _id, _score, _source }) {
+  const type = JSON.parse(_source.visualization.visState).type;
+  const description = _source.visualization.description;
+  console.log(description.length);
   return (
     <TableRow className="datarow">
       <TableCell>{number}</TableCell>
@@ -14,8 +17,12 @@ function Data({ number, _id, _score, _source}) {
           {_source.visualization.title}
         </Link>
       </TableCell>
-      <TableCell>{_source.visualization.description}</TableCell>
-      <TableCell>{_source.type}</TableCell>
+      <TableCell>
+        {description.length > 80
+          ? description.slice(0, 80) + "..."
+          : description}
+      </TableCell>
+      <TableCell>{type}</TableCell>
     </TableRow>
   );
 }
