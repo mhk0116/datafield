@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Comment from "../components/Comment";
+import Disqus from "../components/Disqus";
 import "./Chart.css";
 import { withStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
@@ -122,7 +123,8 @@ class Chart extends React.Component {
               <p style={{ lineHeight: "1.5rem" }}>{description}</p>
             </ExpansionPanelDetails>
           </ExpansionPanel>
-          <Comment />
+          {/* <Disqus /> */}
+          <Disqus />
           <div className="goBack">
             <Link to="/datafield">Click to go back</Link>
           </div>

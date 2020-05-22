@@ -60,14 +60,6 @@ class Home extends React.Component {
                 <GridListTileBar
                   className="category"
                   title="전체 데이터 조회"
-                  //   actionIcon={
-                  //     <IconButton
-                  //       aria-label={`info about ${"title"}`}
-                  //       className={classes.icon}
-                  //     >
-                  //       <InfoIcon />
-                  //     </IconButton>
-                  //   }
                 />
               </Link>
             </GridListTile>
