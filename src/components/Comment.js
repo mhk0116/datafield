@@ -6,9 +6,11 @@ export default class Comment extends React.Component {
     this.stat = {};
   }
   livre = () => {
-    {window.livereOptions={
-      refer:`49.50.167.198/#/visualization/${this.props.id}`
-    }}
+    {
+      window.livereOptions = {
+        refer: `49.50.167.198/#/visualization/${this.props.id}`,
+      };
+    }
     (function (d, s) {
       var j,
         e = d.getElementsByTagName(s)[0];
