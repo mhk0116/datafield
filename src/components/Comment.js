@@ -1,7 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 
 export default class Comment extends React.Component {
+  constructor(props) {
+    super(props);
+    this.stat = {};
+  }
   livre = () => {
+    {window.livereOptions={
+      refer:`49.50.167.198/#/visualization/${this.props.id}`
+    }}
     (function (d, s) {
       var j,
         e = d.getElementsByTagName(s)[0];
