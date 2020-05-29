@@ -2,7 +2,6 @@
   width: 100%;
   height: 100%;
   background-color: #fafafa;
-  /* display: flex; */
   text-align: center;
 }
 .chartHeader {
@@ -30,6 +29,10 @@
 .chartDescription h2,
 p {
   text-align: left;
+}
+.downloadline{
+  position: relative;
+  margin-left: 82%;
 }
 .goBack {
   padding-bottom: 2rem;

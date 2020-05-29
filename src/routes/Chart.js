@@ -12,6 +12,8 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+import Button from "@material-ui/core/Button";
+import SaveIcon from "@material-ui/icons/Save";
 
 const styles = (theme) => ({
   menuButton: {
@@ -134,6 +136,25 @@ class Chart extends React.Component {
               <p style={{ lineHeight: "1.5rem" }}>{description}</p>
             </ExpansionPanelDetails>
           </ExpansionPanel>
+          <div className="downloadline">
+            <a
+              href={
+                process.env.PUBLIC_URL +
+                `csv/${window.localStorage.getItem("title")}.csv`
+              }
+              download
+            >
+              <Button
+                variant="contained"
+                color="primary"
+                size="medium"
+                className={classes.button}
+                startIcon={<SaveIcon />}
+              >
+                Download
+              </Button>
+            </a>
+          </div>
           <Comment id={id} />
           <div className="goBack">
             <Link to="/datafield">Click to go back</Link>
