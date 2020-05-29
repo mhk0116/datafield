@@ -5,6 +5,10 @@
   /* display: flex; */
   text-align: center;
 }
+.downloadline{
+  position: relative;
+  margin-left: 82%;
+}
 .chartHeader {
   margin: 5rem auto 0;
   width: 800px;

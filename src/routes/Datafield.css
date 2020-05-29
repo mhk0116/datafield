@@ -3,7 +3,11 @@
     height: 100vh;
     background-color: snow;
   }
-  
+  .persistent{
+    display: flex;
+    background-color: white;
+    margin-left: 8px;
+  }
   .search {
     position: relative;
     border: 1px solid rgba(169, 169, 169, 0.5);

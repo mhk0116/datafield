@@ -1,8 +1,12 @@
-import React from "react";
+import React,{Component} from "react";
 import { Link } from "react-router-dom";
 import Comment from "../components/Comment";
 import "./Chart.css";
+import PersistentDrawerLeft from "./Datafield.js"
 import { withStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
+import Button from "@material-ui/core/Button";
+import SaveIcon from "@material-ui/icons/Save";
 import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -13,6 +17,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
+
 
 const styles = (theme) => ({
   menuButton: {
@@ -32,6 +37,8 @@ const styles = (theme) => ({
     fontWeight: theme.typography.fontWeightRegular,
   },
 });
+
+
 
 class Chart extends React.Component {
   constructor(props) {
@@ -70,6 +77,7 @@ class Chart extends React.Component {
     }
   }
 
+
   render() {
     const { id, title, description, type } = this.state;
     const { classes } = this.props;
@@ -98,6 +106,7 @@ class Chart extends React.Component {
             </IconButton>
           </Toolbar>
         </AppBar>
+
         <div className="chartHeader">
           <h2 className="chartTitle">{title}</h2>
           <p className="chartType">{type}</p>
@@ -122,6 +131,17 @@ class Chart extends React.Component {
               <p style={{ lineHeight: "1.5rem" }}>{description}</p>
             </ExpansionPanelDetails>
           </ExpansionPanel>
+        <div className="downloadline">
+        <a href= {process.env.PUBLIC_URL +`csv/${window.localStorage.getItem("title")}.csv`} download>
+        <Button
+        variant="contained"
+        color="primary"
+        size="medium"
+        className={classes.button}
+        startIcon={<SaveIcon />}
+        >
+        Download
+        </Button></a></div>
           <Comment id={id}/>
           <div className="goBack">
             <Link to="/datafield">Click to go back</Link>
@@ -131,5 +151,6 @@ class Chart extends React.Component {
     );
   }
 }
+
 
 export default withStyles(styles)(Chart);

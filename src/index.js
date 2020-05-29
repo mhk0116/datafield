@@ -4,6 +4,14 @@ import {HashRouter} from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+//amazon S3 setup
+/*import AWS from 'aws-sdk'
+import{s3Config, s3Region} from './config'
+  AWS.config.update(s3Config)
+AWS.config.region =s3Region;
+const s3 = new AWS.S3();
+App.s3 = s3;
+*/
 
 ReactDOM.render(
   <React.StrictMode>
