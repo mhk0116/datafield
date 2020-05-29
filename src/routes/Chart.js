@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import Comment from "../components/Comment";
 import "./Chart.css";
 import { withStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
@@ -102,13 +101,26 @@ class Chart extends React.Component {
           <h2 className="chartTitle">{title}</h2>
           <p className="chartType">{type}</p>
         </div>
-        <iframe
-          className="chart"
-          src={`http://49.50.167.198:5601/app/kibana#/visualize/edit/${id}?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-7d%2Cto%3Anow))`}
-          height="600"
-          width="800"
-          frameBorder="none"
-        ></iframe>
+        {type === "dashboard" ? (
+          <iframe
+            className="chart"
+            title={title}
+            src={`http://49.50.167.198:5601/app/kibana#/dashboard/${id}?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-7d%2Cto%3Anow))`}
+            height="600"
+            width="800"
+            frameBorder="none"
+          ></iframe>
+        ) : (
+          <iframe
+            className="chart"
+            title={title}
+            src={`http://49.50.167.198:5601/app/kibana#/visualize/edit/${id}?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-7d%2Cto%3Anow))`}
+            height="600"
+            width="800"
+            frameBorder="none"
+          ></iframe>
+        )}
+
         <div className="chartDescription">
           <ExpansionPanel>
             <ExpansionPanelSummary
@@ -122,7 +134,7 @@ class Chart extends React.Component {
               <p style={{ lineHeight: "1.5rem" }}>{description}</p>
             </ExpansionPanelDetails>
           </ExpansionPanel>
-          <Comment id={id}/>
+          <Comment id={id} />
           <div className="goBack">
             <Link to="/datafield">Click to go back</Link>
           </div>
