@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Data from "../components/Data";
+import Hamberger from "../components/Hamberger";
 // style
 import "./Datafield.css";
 import Paper from "@material-ui/core/Paper";
@@ -12,15 +13,10 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import InputBase from "@material-ui/core/InputBase";
-import MenuIcon from "@material-ui/icons/Menu";
-import SearchIcon from "@material-ui/icons/Search";
 
 const styles = (theme) => ({
   root: {
+    marginTop: 77,
     width: "100%",
     height: "100%",
   },
@@ -34,45 +30,6 @@ const styles = (theme) => ({
   },
   progress: {
     margin: theme.spacing(2),
-  },
-  menuButton: {
-    color: "black",
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    // color: "black",
-    flexGrow: 1,
-    display: "none",
-    padding: 0,
-    [theme.breakpoints.up("sm")]: {
-      display: "block",
-    },
-  },
-  searchIcon: {
-    padding: theme.spacing(0, 2),
-    height: "100%",
-    position: "absolute",
-    pointerEvents: "none",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    color: "darkgray",
-  },
-  inputRoot: {
-    color: "black",
-  },
-  inputInput: {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
-    transition: theme.transitions.create("width"),
-    width: "100%",
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
   },
 });
 
@@ -116,11 +73,8 @@ class Datafield extends React.Component {
     this.setState({ completed: completed >= 100 ? 0 : completed + 1 });
   };
 
-  // search event handler
-  handleValueChange = (e) => {
-    let nextState = {};
-    nextState[e.target.name] = e.target.value;
-    this.setState(nextState);
+  eventHandler = (e) => {
+    this.setState({ searchKeyword: e });
   };
 
   render() {
@@ -131,14 +85,12 @@ class Datafield extends React.Component {
           return (
             d._source.visualization.title.indexOf(this.state.searchKeyword) > -1
           );
-        } else if (d._id.slice(0,1)==="d"){
+        } else if (d._id.slice(0, 1) === "d") {
           return (
             d._source.dashboard.title.indexOf(this.state.searchKeyword) > -1
           );
-        }else
-        return (
-          d._source.map.title.indexOf(this.state.searchKeyword) > -1
-        );
+        } else
+          return d._source.map.title.indexOf(this.state.searchKeyword) > -1;
       });
       return data.map((d, index) => {
         return (
@@ -156,53 +108,12 @@ class Datafield extends React.Component {
     };
     const { classes } = this.props;
     const cellList = ["번호", "제목 (누르면 이동)", "설명", "구분"];
+    const { searchKeyword } = this.state;
 
     return (
       <div className="root">
         <div className={classes.root}>
-          <AppBar
-            position="static"
-            style={{ background: "white" }}
-            elevation={1}
-          >
-            <Toolbar>
-              <IconButton
-                edge="start"
-                className={classes.menuButton}
-                color="inherit"
-                aria-label="open drawer"
-              >
-                <MenuIcon />
-              </IconButton>
-              <IconButton
-                edge="start"
-                className={classes.title}
-                color="inherit"
-                aria-label="open drawer"
-                variant="h6"
-              >
-                <Link to="/" color="inherit" className="Link">
-                  <img src="/img/logo.png" alt="로고" className="logo" />
-                </Link>
-              </IconButton>
-              <div className="search">
-                <div className={classes.searchIcon}>
-                  <SearchIcon />
-                </div>
-                <InputBase
-                  placeholder="Search…"
-                  classes={{
-                    root: classes.inputRoot,
-                    input: classes.inputInput,
-                  }}
-                  name="searchKeyword"
-                  value={this.state.searchKeyword}
-                  onChange={this.handleValueChange}
-                  inputProps={{ "aria-label": "search" }}
-                />
-              </div>
-            </Toolbar>
-          </AppBar>
+        <Hamberger keyword={searchKeyword} eventHandler={this.eventHandler} />
           <Paper className={classes.paper}>
             <Table className={classes.table}>
               <TableHead>
