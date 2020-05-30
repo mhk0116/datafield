@@ -4,6 +4,7 @@ import "./Data.css";
 import PropTypes from "prop-types";
 import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
+import Axios from "axios";
 
 class Data extends React.Component {
   constructor(props) {
@@ -14,28 +15,67 @@ class Data extends React.Component {
       description: "",
       id: this.props._id,
       number: this.props.number,
+      raw: this.props.raw,
+      hits: [],
+      isDashboard: false,
     };
   }
   getSource = (props) => {
-    this.state.id.slice(0, 1) === "v"
-      ? this.setState({
+    if(this.state.id.slice(0, 1) === "v"){
+       this.setState({
           title: this.props._source.visualization.title,
           type: JSON.parse(this.props._source.visualization.visState).type,
           description: this.props._source.visualization.description,
           id: this.props._id.slice(14),
-        })
-      : this.setState({
+        })}
+      else if(this.state.id.slice(0, 1) === "d"){
+      this.setState({
           title: this.props._source.dashboard.title,
           type: "dashboard",
           description: this.props._source.dashboard.description,
           id: this.props._id.slice(10),
-        });
+        })}
+        else
+        this.setState({
+          title: this.props._source.map.title,
+          type: "map",
+          description: this.props._source.map.description,
+          id: this.props._id.slice(4),
+        })
   };
   componentDidMount() {
     this.getSource();
+    if (this.state.id.slice(0, 1) === "d") {
+      this.getDashboard();
+    }
   }
+  getDashboard = async () => {
+    const {
+      data: {
+        hits: { hits },
+      },
+    } = await Axios.get("/api/dashboard", { params: { raw: this.props.raw } });
+    this.setState({ hits });
+    this.setState({ isDashboard: true });
+  };
+
   render() {
-    const { title, type, description, id, number } = this.state;
+    const {
+      title,
+      type,
+      description,
+      id,
+      number,
+      raw,
+      hits,
+      isDashboard,
+    } = this.state;
+    const data = [];
+    if (isDashboard) {
+      hits.map((d) => {
+        return data.push(d._source.references[0].id);
+      });
+    }
     return (
       <TableRow className="datarow">
         <TableCell>{number}</TableCell>
@@ -48,6 +88,7 @@ class Data extends React.Component {
                 type: type,
                 description: description,
                 title: title,
+                raw: isDashboard?data:raw,
               },
             }}
             className="Link"

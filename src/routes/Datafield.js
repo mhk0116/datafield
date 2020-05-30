@@ -127,18 +127,30 @@ class Datafield extends React.Component {
     // render data
     const filteredComponents = (data) => {
       data = data.filter((d) => {
-        if ((d._id.slice(0, 1) === "v")) {
+        if (d._id.slice(0, 1) === "v") {
           return (
             d._source.visualization.title.indexOf(this.state.searchKeyword) > -1
           );
-        } else
+        } else if (d._id.slice(0,1)==="d"){
           return (
             d._source.dashboard.title.indexOf(this.state.searchKeyword) > -1
           );
+        }else
+        return (
+          d._source.map.title.indexOf(this.state.searchKeyword) > -1
+        );
       });
       return data.map((d, index) => {
         return (
-          <Data key={d._id} number={index} _id={d._id} _source={d._source} />
+          <Data
+            key={d._id}
+            number={index}
+            _id={d._id}
+            _source={d._source}
+            raw={d._source.references.map((d) => {
+              return d.id;
+            })}
+          />
         );
       });
     };

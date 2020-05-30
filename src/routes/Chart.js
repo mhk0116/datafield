@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import Comment from "../components/Comment";
 import "./Chart.css";
 import { withStyles } from "@material-ui/core/styles";
@@ -42,6 +43,7 @@ class Chart extends React.Component {
       title: "",
       description: "",
       type: "",
+      hits: [],
     };
   }
 
@@ -52,6 +54,7 @@ class Chart extends React.Component {
       this.props.location.state.description
     );
     window.localStorage.setItem("type", this.props.location.state.type);
+    window.localStorage.setItem("raw", this.props.location.state.raw);
   }
 
   setData() {
@@ -62,6 +65,28 @@ class Chart extends React.Component {
     });
   }
 
+  getIndexName = async () => {
+    const {
+      data: {
+        hits: { hits },
+      },
+    } = await axios.get("/api/index", {
+      params: {
+        raw: window.localStorage.getItem("raw").split(","),
+      },
+    });
+    this.setState({ hits });
+  };
+
+  handleClick(indexName, type) {
+    this.getLog(String(indexName), String(type));
+  }
+  getLog = async (e, t) => {
+    await axios.get("/api/log", {
+      params: { indexName: e, type: t },
+    });
+  };
+
   componentDidMount() {
     if (this.props.location.state === undefined) {
       this.setData();
@@ -69,11 +94,23 @@ class Chart extends React.Component {
       this.storeData();
       this.setData();
     }
+    this.getIndexName();
   }
 
   render() {
-    const { id, title, description, type } = this.state;
+    const { id, title, description, type, hits } = this.state;
     const { classes } = this.props;
+    const indexName = hits.map((d) => {
+      return d._source["index-pattern"].title;
+    });
+    const regExp = (str) => {
+      var reg = /[?.,;:|*~`!^\-+<>@$%&]/gi;
+      if (reg.test(str)) {
+        return str.replace(reg, "");
+      } else {
+        return str;
+      }
+    };
     return (
       <div className="chartRoot">
         <AppBar position="static" style={{ background: "white" }} elevation={1}>
@@ -138,10 +175,9 @@ class Chart extends React.Component {
           </ExpansionPanel>
           <div className="downloadline">
             <a
-              href={
-                process.env.PUBLIC_URL +
-                `csv/${window.localStorage.getItem("title")}.csv`
-              }
+              href={`http://localhost:5000/download/${regExp(
+                String(indexName)
+              )}.csv`}
               download
             >
               <Button
@@ -150,6 +186,7 @@ class Chart extends React.Component {
                 size="medium"
                 className={classes.button}
                 startIcon={<SaveIcon />}
+                onClick={() => this.handleClick(indexName, type)}
               >
                 Download
               </Button>
