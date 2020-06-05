@@ -1,17 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-class Report extends React.Component {
+class Cluster extends React.Component {
   render() {
     return (
       <div>
-        <h2>
-          This is <h1>Report</h1> page!
-        </h2>
+        <img src="http://localhost:5000/download/img/cluster.png" />
         <Link to="/datafield">Datafield</Link>
       </div>
     );
   }
 }
 
-export default Report;
+export default Cluster;

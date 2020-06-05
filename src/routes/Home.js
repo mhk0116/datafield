@@ -72,7 +72,7 @@ class Home extends React.Component {
               </Link>
             </GridListTile>
             <GridListTile>
-              <Link to="/datafield" className="Link">
+              <Link to="/cluster" className="Link">
                 <div className="imageContainer">
                   <img src="/img/Picture3.png" alt="군집 분석" />
                 </div>
