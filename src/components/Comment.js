@@ -7,7 +7,7 @@ export default class Comment extends React.Component {
   }
   livre = () => {
     window.livereOptions = {
-      refer: `localhost/#/visualization/${this.props.id}`,
+      refer: `localhost/#/${this.props.page}/${this.props.id}`,
     };
 
     (function (d, s) {

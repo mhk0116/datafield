@@ -192,7 +192,7 @@ class Chart extends React.Component {
               </Button>
             </a>
           </div>
-          <Comment id={id} />
+          <Comment id={id} page="visualization" />
           <div className="goBack">
             <Link to="/datafield">Click to go back</Link>
           </div>

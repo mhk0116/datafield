@@ -64,7 +64,7 @@ class Home extends React.Component {
               </Link>
             </GridListTile>
             <GridListTile>
-              <Link to="/datafield" className="Link">
+              <Link to="/trend/1" className="Link">
                 <div className="imageContainer">
                   <img src="/img/Picture2.png" alt="트렌드 분석" />
                 </div>
@@ -72,7 +72,7 @@ class Home extends React.Component {
               </Link>
             </GridListTile>
             <GridListTile>
-              <Link to="/cluster" className="Link">
+              <Link to="/cluster/1" className="Link">
                 <div className="imageContainer">
                   <img src="/img/Picture3.png" alt="군집 분석" />
                 </div>
