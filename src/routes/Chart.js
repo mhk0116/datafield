@@ -140,7 +140,7 @@ class Chart extends React.Component {
           <h2 className="chartTitle">{title}</h2>
           <p className="chartType">{type}</p>
         </div>
-        {type === "dashboard" ? (
+        {type === "dashboard" || type === "map" ? (
           <iframe
             className="chart"
             title={title}

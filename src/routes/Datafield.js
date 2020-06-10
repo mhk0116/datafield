@@ -89,10 +89,12 @@ class Datafield extends React.Component {
           return (
             d._source.dashboard.title.indexOf(this.state.searchKeyword) > -1
           );
-        } else
-          return d._source.map.title.indexOf(this.state.searchKeyword) > -1;
+        }
+        // else
+        //   return d._source.map.title.indexOf(this.state.searchKeyword) > -1;
       });
       return data.map((d, index) => {
+        if (d._id.slice(0, 1) !== "m"){
         return (
           <Data
             key={d._id}
@@ -103,7 +105,7 @@ class Datafield extends React.Component {
               return d.id;
             })}
           />
-        );
+        );}
       });
     };
     const { classes } = this.props;

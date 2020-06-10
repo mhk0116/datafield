@@ -57,6 +57,9 @@ class Data extends React.Component {
     } = await Axios.get("/api/dashboard", { params: { raw: this.props.raw } });
     this.setState({ hits });
     this.setState({ isDashboard: true });
+    if(this.state.hits.length===1){
+      this.setState({type:"map"})
+    }
   };
 
   render() {
