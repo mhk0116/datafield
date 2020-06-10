@@ -11,7 +11,8 @@ class Trend extends React.Component {
             list1:[],
             rentalNo:"",
             imgSrc:"/download/img/predict.png",
-            imageHash: ""
+            imageHash: "",
+            isLoading: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -19,6 +20,7 @@ class Trend extends React.Component {
     }
 
     getList = async (e) => {
+      this.setState({isLoading:true});
         const list1 = await axios.get("/api/trend",{
             params:{
                 rentalNo: e
@@ -26,6 +28,7 @@ class Trend extends React.Component {
         })
         this.setState({list1:list1.data});
         this.setState({imageHash: Date.now()});
+        this.setState({isLoading:false});
     }
     handleChange = (e) => {
       let inputMessage = e.target.value;
@@ -40,8 +43,10 @@ class Trend extends React.Component {
         console.log("enter");
       }
     }
+
   render() {
-    const {list1, rentalNo, imgSrc, imageHash} = this.state;
+    const { classes } = this.props;
+    const {list1, rentalNo, imgSrc, imageHash, isLoading} = this.state;
     const getMyList = () =>{
       const myList = [];
       for(let i = 3; i < list1.length; i++){
@@ -52,21 +57,27 @@ class Trend extends React.Component {
       }
       return myList;
     }
-    const myList = list1.slice(3);
     return (
       <div>
         <input type ="text" placeholder="대여소 번호 입력 후 엔터" value={rentalNo} onChange={this.handleChange } onKeyPress = {this.handleKeyPress} />
         <img src={`${imgSrc}?${imageHash}`} />
         <Link to="/datafield">Datafield</Link>
-        <div>
-          <h1>{list1[0]}</h1>
-          <h1>{list1[1]}</h1>
-          <h1>{list1[2]}</h1>
-          <div>{getMyList().map((d)=>{
-            const temp = d.name + "\t\t" + d.id + "\t\t" +  d.address + "\t\t" + d.mean
-            return (<p>{temp}</p>)
-          })}</div>
-        </div>
+        {isLoading?(
+          <div>
+            <span>잠시만 기다려 주세요</span>
+          </div>
+        ):(
+          <div>
+              <h1>{list1[0]}</h1>
+              <h1>{list1[1]}</h1>
+              <h1>{list1[2]}</h1>
+              <div>{getMyList().map((d)=>{
+                const temp = d.name + "\t\t" + d.id + "\t\t" +  d.address + "\t\t" + d.mean
+                return (<p>{temp}</p>)
+              })}
+              </div>
+          </div>
+        )}
         <Comment id="1" page="trend" />
       </div>
     );

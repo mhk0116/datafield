@@ -29,6 +29,10 @@
   width: 572px;
   margin: 0 0 3rem 0;
 }
+.root .cloudContainer .goodPlace{
+  display: flex;
+  justify-content: space-around;
+}
 .navBlock {
   background-color: white;
   color: black;
