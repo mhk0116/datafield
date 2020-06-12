@@ -51,7 +51,7 @@ function App(props) {
                     <Route exact path="/datafield" component={Datafield} />
                     <Route exact path='/aboutus' component={About} />
                     <Route path="/trend/:id" component={Trend} />
-                    <Route exact path="/cloud/1" component={Cloud} />
+                    <Route exact path="/cloud/:id" component={Cloud} />
                     <Route path="/visualization/:id" component={Chart} />
                 </Switch>
               </div>

@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Comment from "../components/Comment";
 import "./routes.css"
 import { withStyles } from "@material-ui/core/styles";
@@ -10,8 +9,6 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import CircularProgress from "@material-ui/core/CircularProgress";
-import Box from "@material-ui/core/Box";
-
 
 
 const styles = (theme) => ({
@@ -82,7 +79,7 @@ class Trend extends React.Component {
     const getMyList = () =>{
       const myList = [];
       for(let i = 3; i < list1.length; i++){
-        if((i+1)%4 == 0){
+        if((i+1)%4 === 0){
           let temp = {"name":list1[i], "id":list1[i+1], "address":list1[i+2], "mean":list1[i+3],}
           myList.push(temp);
         }
@@ -92,9 +89,9 @@ class Trend extends React.Component {
     return (
       <div>
         <div className="trendBox">
-          <img src={`${imgSrc}?${imageHash}`} />
+          <img src={`${imgSrc}?${imageHash}`} alt="trend" />
           <div className="legend">
-            <img src="/img/legend.png" />
+            <img src="/img/legend.png" alt="legend" />
           </div>
         </div>
         <div className="trendBox">
@@ -112,7 +109,6 @@ class Trend extends React.Component {
                 <h1>{list1[1]}</h1>
                 <h3>{list1[2]}</h3>
                 <div>{getMyList().map((d,i)=>{
-                  const temp = d.name + "\t\t" + d.id + "\t\t" +  d.address + "\t\t" + d.mean
                   return (<div className="result" key={i}><p>{`${d.name}\t${d.id}\t${d.address}\t${d.mean}`}</p></div>)
                 })}
                 </div>

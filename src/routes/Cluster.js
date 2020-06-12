@@ -1,6 +1,4 @@
 import React from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
 import Comment from "../components/Comment";
 import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -45,11 +43,10 @@ class Cluster extends React.Component {
   render() {
     const {imgSrc, imageHash} = this.state;
     const { classes } = this.props;
-    const des = ``
 
     return (
       <div className="clusterBox">
-        <img src={`${imgSrc}?${imageHash}`} />
+        <img src={`${imgSrc}?${imageHash}`} alt="cluster" />
         <p>그룹0 : 자전거 이용률도 적고, 인프라도 적은 구 -> 이상적</p>
         <p>그룹1 : 자전거 이용률에 비해 인프라가 많은 구 -> 인프라 충분</p>
         <p>그룹2 : 자전거 이용률도 높고, 인프라도 많은 구 -> 이상적</p>

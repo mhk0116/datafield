@@ -80,7 +80,7 @@ class Cloud extends React.Component {
         </form>
 
         <span>
-          <img src={`/download/img/wordcloud_${this.state.name}.png`} width="1000" height="800" />
+          <img src={`/download/img/wordcloud_${this.state.name}.png`} width="1000" height="800" alt="cloud" />
           <div>
             <h2>따릉이 핫플레이스!</h2>
             {this.state.list.map((data, index) => {
