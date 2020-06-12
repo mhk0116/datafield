@@ -1,0 +1,40 @@
+.trendBox{
+  margin: 0 auto 0;
+  width: 1000px;
+}
+.legend{
+  width: 70%;
+  margin: 0 0 0 400px;
+}
+.trendBox input{
+  padding: 10px;
+}
+.progress{
+  align-items: center;
+  text-align: center;
+}
+.result{
+  width: 70%;
+  margin: 0 auto 0;
+}
+
+.clusterBox{
+  margin: 0 auto 0;
+  width: 1600px;
+}
+
+.cloudBox{
+  margin: 0 auto 0;
+  width: 1300px;
+}
+.cloudBox .comboBox{
+  margin-left: 100px;
+  padding: 10px;
+}
+.cloudBox span{
+  display: flex;
+}
+.cloudBox h2{
+  margin-top: 150px;
+  margin-bottom: 60px;
+}

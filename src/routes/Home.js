@@ -1,4 +1,5 @@
-import React from "react";
+
+/*import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { withStyles } from "@material-ui/core/styles";
@@ -63,7 +64,7 @@ class Home extends React.Component {
             <div>
               <img src={`${imgSrc}?${imageHash}`} alt="워드 클라우드" className="cloud" />
             </div>
-            <div>
+            <div className="hotplace">
               {list1.map((d,index)=>{
                 if(index===0){
                   return <div key={index} ><h3>{d}</h3></div>
@@ -128,3 +129,4 @@ class Home extends React.Component {
 }
 
 export default withStyles(styles)(Home);
+*/

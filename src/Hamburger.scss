@@ -1,0 +1,139 @@
+//hamburger menu
+
+$red: #e20001;
+$black: #191919;
+
+.hamburger-menu{
+  display:none;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index:9;
+     .menu-secondary-background-color{
+       background-color:$black;
+       top:0;
+       bottom:0;
+       left:0;
+       right:0;
+       position: fixed;
+       height: 100%;
+       width: 100%;
+       z-index:-1;
+     }
+     .menu-layer{
+       position: relative;
+       background-color:$red;
+       height: 100%;
+       overflow: hidden;
+       .menu-func-background{
+         top:0;
+         bottom:0;
+         left:0;
+         right:0;
+         position: absolute;
+         height: 100%;
+         width: 100%;
+         opacity: 0;
+         background-size: cover;
+         background-repeat: no-repeat;
+         animation: backgroundEffect 30s infinite;
+       }
+       .wrapper{
+         position: relative;
+         margin-left:10%;
+
+         .menu-links{
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           position: relative;
+           top:150px;
+           nav{
+             display: block;
+             ul{
+               padding: 0;
+               margin: 0;
+               li{
+                 list-style: none;
+                 font-size: 4.8rem;
+                 font-weight: 700;
+                 cursor: pointer;
+                 height: 130px;
+                 overflow: hidden;
+                 position: relative;
+                 width: 700px;
+                 a{
+                   position: absolute;
+                   color: seashell;
+                   text-decoration: none;
+                   &:hover{
+                     color:$black;
+                   }
+                 }
+
+               }
+             }
+            }
+           .info{
+             color: seashell;
+             width: 300px;
+             margin-right: 7%;
+             h3{
+               font-size: 1.3rem;
+               margin: 8px auto;
+             }
+             p{
+               margin: 0 auto;
+               font-size: 0.8rem;
+             }
+           }
+         }
+         .functions{
+           text-decoration: none;
+           position: absolute;
+           bottom: -60px;
+           color: blanchedalmond;
+           margin-top: 6px;
+           font-size: .8rem;
+           font-weight: 800;
+           span{
+             &:first-child{
+               margin-left: 64px;
+             }
+             cursor: pointer;
+             font-weight: 400;
+            margin: 0 32px;
+             transition: 0.3s ease-in-out;
+             &:hover{
+                 color: blanchedalmond;
+               background: $black;
+               padding: 8px 24px;
+               border-radius: 4px;
+             }
+           }
+         }
+       }
+     }
+   }
+
+   @keyframes backgroundEffect {
+    0% {
+      background-position: 0% 0%;
+    }
+    25% {
+      background-position: 40% 10%;
+    }
+    50% {
+      background-position: 0 10%;
+    }
+    75% {
+      background-position: 10% 40%;
+    }
+    100% {
+      background-position: 0% 0%;
+    }
+  }

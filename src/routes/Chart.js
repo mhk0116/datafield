@@ -4,10 +4,10 @@ import axios from "axios";
 import Comment from "../components/Comment";
 import "./Chart.css";
 import { withStyles } from "@material-ui/core/styles";
-import AppBar from "@material-ui/core/AppBar";
-import Toolbar from "@material-ui/core/Toolbar";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+// import AppBar from "@material-ui/core/AppBar";
+// import Toolbar from "@material-ui/core/Toolbar";
+// import IconButton from "@material-ui/core/IconButton";
+// import MenuIcon from "@material-ui/icons/Menu";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -113,29 +113,6 @@ class Chart extends React.Component {
     };
     return (
       <div className="chartRoot">
-        <AppBar position="static" style={{ background: "white" }} elevation={1}>
-          <Toolbar>
-            <IconButton
-              edge="start"
-              className={classes.menuButton}
-              color="inherit"
-              aria-label="open drawer"
-            >
-              <MenuIcon />
-            </IconButton>
-            <IconButton
-              edge="start"
-              className={classes.title}
-              color="inherit"
-              aria-label="open drawer"
-              variant="h6"
-            >
-              <Link to="/" color="inherit" className="Link">
-                <img src="/img/logo.png" alt="로고" className="logo" />
-              </Link>
-            </IconButton>
-          </Toolbar>
-        </AppBar>
         <div className="chartHeader">
           <h2 className="chartTitle">{title}</h2>
           <p className="chartType">{type}</p>

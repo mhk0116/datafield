@@ -31,7 +31,10 @@
 }
 .root .cloudContainer .goodPlace{
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+}
+.root .cloudContainer .hotplace{
+  margin-left: 15rem;
 }
 .navBlock {
   background-color: white;

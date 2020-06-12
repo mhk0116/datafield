@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Data from "../components/Data";
-import Hamberger from "../components/Hamberger";
+// import Hamberger from "../components/Hamberger";
 // style
 import "./Datafield.css";
 import Paper from "@material-ui/core/Paper";
@@ -13,23 +13,50 @@ import TableRow from "@material-ui/core/TableRow";
 import TableCell from "@material-ui/core/TableCell";
 import CircularProgress from "@material-ui/core/CircularProgress";
 import { withStyles } from "@material-ui/core/styles";
+import InputBase from "@material-ui/core/InputBase";
+import SearchIcon from "@material-ui/icons/Search";
 
 const styles = (theme) => ({
   root: {
-    marginTop: 77,
     width: "100%",
     height: "100%",
   },
   paper: {
-    marginTop: 18,
-    marginLeft: 18,
-    marginRight: 18,
+    margin: "0 auto",
+    maxWidth: "1200px",
   },
   tableHead: {
     fontSize: "1.0rem",
+    fontWeight: "1000",
   },
   progress: {
     margin: theme.spacing(2),
+  },
+  searchIcon: {
+    padding: theme.spacing(0, 2),
+    height: "100%",
+    position: "absolute",
+    pointerEvents: "none",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    color: "darkgray",
+  },
+  inputRoot: {
+    color: "black",
+  },
+  inputInput: {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)}px)`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("sm")]: {
+      width: "60ch",
+      "&:focus": {
+        width: "60ch",
+      },
+    },
   },
 });
 
@@ -73,8 +100,10 @@ class Datafield extends React.Component {
     this.setState({ completed: completed >= 100 ? 0 : completed + 1 });
   };
 
-  eventHandler = (e) => {
-    this.setState({ searchKeyword: e });
+  handleValueChange = (e) => {
+    let nextState = {};
+    nextState[e.target.name] = e.target.value;
+    this.setState(nextState);
   };
 
   render() {
@@ -109,20 +138,35 @@ class Datafield extends React.Component {
       });
     };
     const { classes } = this.props;
-    const cellList = ["번호", "제목 (누르면 이동)", "설명", "구분"];
-    const { searchKeyword } = this.state;
+    const cellList = ["번호", "제목", "설명", "구분"];
 
     return (
       <div className="root">
         <div className={classes.root}>
-        <Hamberger keyword={searchKeyword} eventHandler={this.eventHandler} />
           <Paper className={classes.paper}>
+          <div className="dataTitle"></div>
+          <div className="search">
+            <div className={classes.searchIcon}>
+              <SearchIcon />
+            </div>
+            <InputBase
+              placeholder="Search…"
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}
+              name="searchKeyword"
+              value={this.state.searchKeyword}
+              onChange={this.handleValueChange}
+              inputProps={{ "aria-label": "search" }}
+            />
+          </div>
             <Table className={classes.table}>
               <TableHead>
                 <TableRow>
                   {cellList.map((c, index) => {
                     return (
-                      <TableCell className={classes.TableHead} key={index}>
+                      <TableCell className={classes.tableHead} key={index}>
                         {c}
                       </TableCell>
                     );
@@ -146,8 +190,8 @@ class Datafield extends React.Component {
               </TableBody>
             </Table>
           </Paper>
+          </div>
         </div>
-      </div>
     );
   }
 }
