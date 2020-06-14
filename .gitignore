@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# big file
+/public/img/aboutus.mp4
+/public/img/image1.jpg
+/public/img/image2.jpg
+/public/img/image3.jpg
+/public/img/image4.jpg
+/public/img/image5.jpg
+/public/img/image6.jpg
