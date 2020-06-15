@@ -2,13 +2,27 @@ import React, { useState, useEffect } from "react";
 import { withRouter, Link } from "react-router-dom";
 import Hamburger from "./Hamburger";
 import "./Header.scss";
-import logo from "./images/logo.PNG"
-const Header = ({ history }) => {
+import logo from "./images/logo.PNG";
+
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+
+const useStyles = makeStyles((theme) => ({
+  margin: {
+    margin: theme.spacing(1),
+  },
+
+}));
+
+
+
+const Header = ({ history, isWhite }) => {
     // State of our Menu
     const [state, setState] = useState({
       initial: false,
       clicked: null,
-      menuName: "Menu"
+      menuName: "Menu",
+      isWhite: false
     });
     // State of our button
     const [disabled, setDisabled] = useState(false);
@@ -50,6 +64,7 @@ const Header = ({ history }) => {
         setDisabled(false);
       }, 1200);
     };
+    const classes = useStyles();
  return <header>
       <div className="container">
           <div className="wrapper">
@@ -58,9 +73,11 @@ const Header = ({ history }) => {
                         <Link to='/'><img className="logopic" src={logo} alt="자전거데이터연구소"></img></Link>
                   </div>
                   <div className="menu">
-                     <button disabled={disabled} onClick={handleMenu}>
+                  <Button  disabled={disabled} onClick={handleMenu} variant="contained" size="large" color={isWhite?"primary":"secondery"}
+                  className={classes.margin}>
                     {state.menuName}
-                        </button>
+                    </Button>
+
                   </div>
               </div>
           </div>

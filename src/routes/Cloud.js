@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Header from '../Header.js'
 import Comment from "../components/Comment";
 import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -67,6 +68,7 @@ class Cloud extends React.Component {
 
     return (
       <div className="chartRoot">
+      <Header />
       <div className="cloudBox">
         <form>
           <label>

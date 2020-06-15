@@ -1,4 +1,5 @@
 import React from "react";
+import Header from '../Header.js'
 import Comment from "../components/Comment";
 import { withStyles } from "@material-ui/core/styles";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
@@ -45,6 +46,8 @@ class Cluster extends React.Component {
     const { classes } = this.props;
 
     return (
+      <div className="chartRoot">
+      <Header />
       <div className="clusterBox">
         <img src={`${imgSrc}?${imageHash}`} alt="cluster" />
         <p>그룹0 : 자전거 이용률도 적고, 인프라도 적은 구 -> 이상적</p>
@@ -69,6 +72,7 @@ x축에 해당하는 PC1 변수는 자전거 인프라(전용도로길이, 대�
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <Comment id="1" page="cluster" />
+      </div>
       </div>
     );
   }

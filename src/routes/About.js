@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import axios from "axios";
+import Header from '../Header.js'
 import "./About.css";
 import { urlencoded } from "body-parser";
 
@@ -32,6 +33,10 @@ class About extends React.Component {
 
   render() {
     return (
+      <div className="chartRoot">
+      <div className="content-header">
+        <Header isWhite="true"/>
+      </div>
       <div className="content">
         <div className="media-container">
           <ul className="media-container__slideshow">
@@ -181,6 +186,7 @@ class About extends React.Component {
         <div className="thanks">
           <h1>Thank You For Comming Our Site</h1>
         </div>
+      </div>
       </div>
     );
   }

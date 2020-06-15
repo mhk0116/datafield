@@ -121,6 +121,14 @@ ul {
   list-style: none;
 }
 
+.content-header {
+  /* display: block; */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
 .media-container {
   display: table;
   margin: 0 auto;

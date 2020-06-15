@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Data from "../components/Data";
+import Header from '../Header.js'
 // import Hamberger from "../components/Hamberger";
 // style
 import "./Datafield.css";
@@ -141,6 +142,7 @@ class Datafield extends React.Component {
 
     return (
       <div className="root">
+      <Header />
         <div className={classes.root}>
           <Paper className={classes.paper}>
           <div className="dataTitle"></div>

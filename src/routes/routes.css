@@ -26,10 +26,12 @@
 .cloudBox{
   margin: 0 auto 0;
   width: 1300px;
+  text-align: center;
 }
 .cloudBox .comboBox{
   margin-left: 100px;
   padding: 10px;
+  font-family: inherit;
 }
 .cloudBox span{
   display: flex;

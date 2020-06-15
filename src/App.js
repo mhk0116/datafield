@@ -33,7 +33,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //Assets
 
 import wordcloud from './images/wordcloud.png'
-import girlbike from './images/girlbike.jpg'
+//import girlbike from './images/girlbike.jpg'
 
 function App(props) {
 
@@ -41,7 +41,7 @@ function App(props) {
 
       <Router>
         <div className="App">
-          <Header />
+
           <div className="container">
             <div className="wrapper">
               <div className="home">
@@ -73,7 +73,7 @@ function App(props) {
       useEffect(() => {
 
         // Images Vars
-        const  girlbikeImage = images.firstElementChild; // or children[0]
+        //const  girlbikeImage = images.firstElementChild; // or children[0]
         const wordcloudImage = images.lastElementChild;
 
         //content vars
@@ -81,6 +81,7 @@ function App(props) {
         const headlineSecond = headlineFirst.nextSibling;
         const headlineThird = headlineSecond.nextSibling;
         const contentP = content.children[1];
+        const contentp2 = contentP.nextSibling;
 
         //Remove initial flash
         TweenMax.to(app, 0, {css: {visibility: 'visible'}})
@@ -88,58 +89,61 @@ function App(props) {
         //Images Animation
         tl.from(wordcloudImage, 1.2, {y: 1280, ease: Power3.easeOut},'Start')
         .from(wordcloudImage.firstElementChild, 2, {scale: 1.6, ease: Power3.easeOut}, .2)
-        .from(girlbikeImage, 1.4, {y: 1280, ease: Power3.easeOut}, .2)
-        .from(girlbikeImage.firstElementChild, 2, {scale: 1.6, ease: Power3.easeOut}, .2)
+      //  .from(girlbikeImage, 1.4, {y: 1280, ease: Power3.easeOut}, .2)
+      //  .from(girlbikeImage.firstElementChild, 2, {scale: 1.6, ease: Power3.easeOut}, .2)
 
         //Content Animation
-        tl.staggerFrom([headlineFirst.children, headlineSecond.children, headlineThird.children ], 1, {
-          y: 44,
-          ease:Power3.easeOut,
-          delay: .8
-        }, .15, 'Start')
-        .from(contentP, 1, {y: 20, opacity: 0, ease: Power3.easeOut}, 1.4)
+tl.staggerFrom([headlineFirst.children, headlineSecond.children, headlineThird.children ], 1, {
+  y: 64,
+  ease:Power3.easeOut,
+  delay: .8
+}, .15, 'Start')
+.from(contentP, 1, {y: 40, opacity: 0, ease: Power3.easeOut}, 1.4)
+.from(contentp2, 1, {y: 40, opacity: 0, ease: Power3.easeOut}, 1.4)
 
 
-      }, [tl])
+}, [tl])
 
 
 
-      return <div className="page" ref={el => app = el}>
+
+      return <div>
+      <Header isWhite="true" />
+      <div className="page" ref={el => app = el}>
         <div className="container">
           <div className="page-inner">
             <div className="page-content">
               <div className="page-content-inner"ref={el => content = el}>
-                <h1>
-                  <div className="page-content-line">
-                  <div className="page-content-line-inner">Visualization and Insights</div>
-                  </div>
-                  <div className="page-content-line">
-                  <div className="page-content-line-inner">for SmartCity Architects</div>
-                  </div>
-                  <div className="page-content-line">
-                  <div className="page-content-line-inner">--   Bicycle Data Lab  --</div>
-                  </div>
-                </h1>
-                <p>스마트시티 설계자들을 위해 서울시 자전거 데이터를 시각화하고,
-                  군집분석, 워드클라우드, 데이터가공을 통한 인사이트 서비스를 제공합니다.
-                </p>
+              <h1>
+            <div className="page-content-line">
+            <div className="page-content-line-inner">스마트시티를 위한</div>
+            </div>
+            <div className="page-content-line">
+            <div className="page-content-line-inner">자전거 데이터 연구소</div>
+            </div>
+            <div className="page-content-line">
+            <div className="page-content-line-inner"></div>
+            </div>
+          </h1>
+          <p className="p">스마트시티 설계자들을 위해 서울시 자전거 데이터를 시각화하고,군집분석</p>
+          <p className="p2">워드클라우드, 데이터가공을 통한 인사이트 서비스를 제공합니다. </p>
 
 
+
+                    </div>
+                  </div>
+                    <div className="page-images">
+                        <div  ref={el => images = el} className="page-images-inner">
+                          <div className="page-image wordcloud">
+                            <img src={wordcloud} alt="wordcloud"/>
+                          </div>
+
+                      </div>
+                  </div>
+                </div>
               </div>
             </div>
-              <div className="page-images">
-                  <div  ref={el => images = el} className="page-images-inner">
-                    <div className="page-image wordcloud">
-                      <img src={wordcloud} alt="wordcloud"/>
-                    </div>
-                    <div className="page-image girlbike">
-                      <img src={girlbike} alt="girlbike"/>
-                    </div>
-                </div>
             </div>
-          </div>
-        </div>
-      </div>
-    }
+          }
 
 export default App;

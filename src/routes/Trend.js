@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import Header from '../Header.js'
 import Comment from "../components/Comment";
 import "./routes.css"
 import { withStyles } from "@material-ui/core/styles";
@@ -87,7 +88,8 @@ class Trend extends React.Component {
       return myList;
     }
     return (
-      <div>
+      <div className="chartRoot">
+      <Header />
         <div className="trendBox">
           <img src={`${imgSrc}?${imageHash}`} alt="trend" />
           <div className="legend">

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Header from '../Header.js'
 import Comment from "../components/Comment";
 import "./Chart.css";
 import { withStyles } from "@material-ui/core/styles";
@@ -113,10 +114,12 @@ class Chart extends React.Component {
     };
     return (
       <div className="chartRoot">
+      <Header />
         <div className="chartHeader">
           <h2 className="chartTitle">{title}</h2>
           <p className="chartType">{type}</p>
         </div>
+        <div className="chartBody">
         {type === "dashboard" || type === "map" ? (
           <iframe
             className="chart"
@@ -136,6 +139,7 @@ class Chart extends React.Component {
             frameBorder="none"
           ></iframe>
         )}
+        </div>
 
         <div className="chartDescription">
           <ExpansionPanel>
