@@ -80,12 +80,16 @@ class About extends React.Component {
             <div className="col-md-8">
               <div className="info-hero">
                 <h1 className="info-hero__headline js-sr--main">About Us</h1>
+                <br />
                 <p className="margin-bottom-sm js-sr--main">
-                  Our mission is what drives us to do everything possible to
-                  expand human potential. We do that by creating groundbreaking
-                  sport innovations, by making our products more sustainably, by
-                  building a creative and diverse global team and by making a
-                  positive impact in communities where we live and work.
+                  자전거 안전사고를 예방하기 위해
+                  <br />
+                  스마트 시티 설계자들에게 사고 유형별 교통사고 현황과
+                  서울시 안전표지 관리 정보 등의 데이터를 이용하여
+                  <br />
+                  사고가 자주 일어나는 곳에 사고를 방지하기 위한 대책을 세울 수 있도록 한다.
+                  <br />
+                  또, 워드클라우드, 시계열 예측, 군집분석을 통하여 자전거 관련 인프라를 세우는데 인사이트를 제공하도록 한다.
                 </p>
               </div>
             </div>
@@ -108,7 +112,7 @@ class About extends React.Component {
                       </small>
                       <hr className="hr--accent js-sr--main" />
                       <h2 className="info-article__headline js-sr--main">
-                        We Dare To Design The Future Of Sport
+                        We Dare To Design The Future
                       </h2>
                       <p className="margin-bottom-sm js-sr--main">
                         To make big leaps, we take big risks.
@@ -129,7 +133,7 @@ class About extends React.Component {
                       </small>
                       <hr className="hr--accent js-sr--main" />
                       <h2 className="info-article__headline js-sr--main">
-                        We Dare To Design The Future Of Sport
+                        We Dare To Design The Future
                       </h2>
                       <p className="margin-bottom-sm js-sr--main">
                         To make big leaps, we take big risks.
@@ -150,7 +154,7 @@ class About extends React.Component {
                       </small>
                       <hr className="hr--accent js-sr--main" />
                       <h2 className="info-article__headline js-sr--main">
-                        We Dare To Design The Future Of Sport
+                        We Dare To Design The Future
                       </h2>
                       <p className="margin-bottom-sm js-sr--main">
                         To make big leaps, we take big risks.
@@ -171,7 +175,7 @@ class About extends React.Component {
                       </small>
                       <hr className="hr--accent js-sr--main" />
                       <h2 className="info-article__headline js-sr--main">
-                        We Dare To Design The Future Of Sport
+                        We Dare To Design The Future
                       </h2>
                       <p className="margin-bottom-sm js-sr--main">
                         To make big leaps, we take big risks.
@@ -183,9 +187,6 @@ class About extends React.Component {
             </div>
           </div>
         </section>
-        <div className="thanks">
-          <h1>Thank You For Comming Our Site</h1>
-        </div>
       </div>
       </div>
     );

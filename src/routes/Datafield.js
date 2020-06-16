@@ -20,9 +20,11 @@ const styles = (theme) => ({
   root: {
     width: "100%",
     height: "100%",
+    minHeight:"100vh"
   },
   paper: {
     margin: "0 auto",
+    marginTop:"50px",
     maxWidth: "1200px",
   },
   tableHead: {
@@ -179,7 +181,7 @@ class Datafield extends React.Component {
                   filteredComponents(this.state.hits)
                 ) : (
                   <TableRow>
-                    <TableCell colSpan="6" align="center">
+                    <TableCell colSpan="4" align="center">
                       <CircularProgress
                         className={classes.progress}
                         variant="determinate"

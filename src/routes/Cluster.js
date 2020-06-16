@@ -7,7 +7,7 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
+import"./Cluster.css";
 
 const styles = (theme) => ({
   menuButton: {
@@ -49,11 +49,12 @@ class Cluster extends React.Component {
       <div className="chartRoot">
       <Header />
       <div className="clusterBox">
-        <img src={`${imgSrc}?${imageHash}`} alt="cluster" />
-        <p>그룹0 : 자전거 이용률도 적고, 인프라도 적은 구 -> 이상적</p>
+        <div className="groupexp">
+        <img className="image"src={`${imgSrc}?${imageHash}`} alt="cluster" />
+        <div className="text"><p>그룹0 : 자전거 이용률도 적고, 인프라도 적은 구 -> 이상적</p>
         <p>그룹1 : 자전거 이용률에 비해 인프라가 많은 구 -> 인프라 충분</p>
         <p>그룹2 : 자전거 이용률도 높고, 인프라도 많은 구 -> 이상적</p>
-        <p>그룹3 : 자전거 이용률에 비해 인프라가 적은 구 -> 더 많은 인프라 필요</p>
+        <p>그룹3 : 자전거 이용률에 비해 인프라가 적은 구 -> 더 많은 인프라 필요</p></div></div>
         <ExpansionPanel>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}

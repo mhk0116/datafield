@@ -20,7 +20,7 @@ import {
   import grouping from "./images/grouping.JPG";
 
   const functionarray = [
-    { name: "분석 보고서", image: kibanareport},
+    { name: "분석 보고서", image: kibanareport, path: "report/1"},
     { name: "시계열 예측", image: prediction, path: "trend/1" },
     { name: "워드클라우드", image: wordcloud, path: "cloud/1"},
     { name: "군집 분석", image: grouping, path: "cluster/1"}
