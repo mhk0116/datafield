@@ -109,10 +109,30 @@ class Trend extends React.Component {
             <div className="trendBox">
                 <h1>{list1[0]}</h1>
                 <h1>{list1[1]}</h1>
-                <h3>{list1[2]}</h3>
-                <div>{getMyList().map((d,i)=>{
-                  return (<div className="result" key={i}><p>{`${d.name}\t${d.id}\t${d.address}\t${d.mean}`}</p></div>)
-                })}
+                <h1 style={{"text-align":"center"}}>{list1[2]}</h1>
+                <div className="result-table">
+                {list1[2]==="가까운 대여소"?(
+                  <div className="result">
+                    <p className="result__row">{" "}</p>
+                    <p className="result__row">대여소명</p>
+                    <p className="result__row">ID</p>
+                    <p className="result__row">주소</p>
+                    <p className="result__row">일주일 평균 대여량</p>
+                  </div>
+                ):(
+                  ""
+                )}
+                  {getMyList().map((d,i)=>{
+                    return (
+                      <div className="result" key={i}>
+                        <p className="result__row">{i+1}</p>
+                        <p className="result__row">{d.name}</p>
+                        <p className="result__row">{d.id}</p>
+                        <p className="result__row">{d.address}</p>
+                        <p className="result__row">{d.mean+" 건"}</p>
+                      </div>
+                    )
+                  })}
                 </div>
             </div>
           )}

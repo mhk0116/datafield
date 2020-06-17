@@ -13,9 +13,31 @@
   align-items: center;
   text-align: center;
 }
+.result-table{
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
 .result{
-  width: 70%;
+  width: 50rem;
   margin: 0 auto 0;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+}
+.result__row:nth-child(1){
+width: 2rem;
+}
+.result__row:nth-child(2){
+  width: 15rem;
+}
+.result__row:nth-child(3){
+  width: 3rem;
+}
+.result__row:nth-child(4){
+  width: 18rem;
+}
+.result__row:nth-child(5){
+  width: 10rem;
 }
 
 .clusterBox{
