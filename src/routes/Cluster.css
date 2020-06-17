@@ -1,5 +1,31 @@
-.image{
+.groupexp{
+  display: flex;
+  align-items: center;
+}
+.groupexp__image{
   height:70%;
   width:70%;
   margin-top:0;
+}
+.groupexp__text{
+  /* margin-top: 150px; */
+}
+.groupexp__title{
+  opacity: 0;
+}
+.groupexp__list-item{
+  position: absolute;
+  opacity: 0;
+}
+.groupexp__list-item:nth-child(1){
+  color: steelblue;
+}
+.groupexp__list-item:nth-child(2){
+  color: orange;
+}
+.groupexp__list-item:nth-child(3){
+  color: green;
+}
+.groupexp__list-item:nth-child(4){
+  color: purple;
 }

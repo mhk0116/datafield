@@ -73,7 +73,7 @@ const Header = ({ history, isWhite }) => {
                         <Link to='/'><img className="logopic" src={logo} alt="자전거데이터연구소"></img></Link>
                   </div>
                   <div className="menu">
-                  <Button  disabled={disabled} onClick={handleMenu} variant="contained" size="large" color={isWhite?"primary":"secondery"}
+                  <Button  disabled={disabled} onClick={handleMenu} variant="contained" size="large" color={isWhite?"primary":"inherit"}
                   className={classes.margin}>
                     {state.menuName}
                     </Button>

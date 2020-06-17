@@ -133,7 +133,7 @@ class Chart extends React.Component {
           <iframe
             className="chart"
             title={title}
-            src={`http://49.50.167.198:5601/app/kibana#/visualize/edit/${id}?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from%3Anow-7d%2Cto%3Anow))`}
+            src={`http://49.50.167.198:5601/app/kibana#/visualize/edit/${id}?embed=true&_g=(refreshInterval%3A(pause%3A!t%2Cvalue%3A0)%2Ctime%3A(from:now-2y%2Fy,to:now-2y%2Fy))`}
             height="600"
             width="800"
             frameBorder="none"
@@ -156,7 +156,7 @@ class Chart extends React.Component {
           </ExpansionPanel>
           <div className="downloadline">
             <a
-              href={`http://localhost:5000/download/${regExp(
+              href={`/csv/${regExp(
                 String(indexName)
               )}.csv`}
               download

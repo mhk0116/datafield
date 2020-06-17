@@ -26,7 +26,8 @@ import Cluster from "./routes/Cluster";
 import About from "./routes/About"
 import Datafield from "./routes/Datafield";
 import Trend from "./routes/Trend";
-import Cloud from "./routes/Cloud"
+import Cloud from "./routes/Cloud";
+import Report from "./routes/Report";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -53,6 +54,7 @@ function App(props) {
                     <Route path="/trend/:id" component={Trend} />
                     <Route exact path="/cloud/:id" component={Cloud} />
                     <Route path="/visualization/:id" component={Chart} />
+                    <Route path="/report" component={Report} />
                 </Switch>
               </div>
             </div>

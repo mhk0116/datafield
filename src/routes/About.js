@@ -1,9 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import axios from "axios";
 import Header from '../Header.js'
 import "./About.css";
-import { urlencoded } from "body-parser";
 
 class About extends React.Component {
   constructor(props) {
@@ -19,6 +17,7 @@ class About extends React.Component {
           data[i]
         ).getBoundingClientRect();
         let bottomWindow = window.innerHeight;
+        // console.log(bottomWindow);
         if (bottomWindow > bottomObject.bottom - bottomObject.height / 2) {
           data[i].style.transform = "translateY(0) scale(1)";
           data[i].style.opacity = "1";
@@ -102,7 +101,7 @@ class About extends React.Component {
                 <article className="info-article row">
                   <div className="col-md-6 col-sm-5 align-self-center">
                     <div className="info-article__image js-sr--main">
-                      <img src="/img/image5.jpg" />
+                      <img src="/img/image5.jpg" alt="문혜리" />
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-7 align-self-center">
@@ -123,7 +122,7 @@ class About extends React.Component {
                 <article className="info-article info-article--alt row">
                   <div className="col-md-6 col-sm-5 align-self-center">
                     <div className="info-article__image js-sr--main">
-                      <img src="/img/image2.jpg" />
+                      <img src="/img/image2.jpg" alt="김민환" />
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-7 align-self-center">
@@ -144,7 +143,7 @@ class About extends React.Component {
                 <article className="info-article row">
                   <div className="col-md-6 col-sm-5 align-self-center">
                     <div className="info-article__image js-sr--main">
-                      <img src="/img/image3.jpg" />
+                      <img src="/img/image3.jpg" alt="김정훈" />
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-7 align-self-center">
@@ -165,7 +164,7 @@ class About extends React.Component {
                 <article className="info-article info-article--alt row">
                   <div className="col-md-6 col-sm-5 align-self-center">
                     <div className="info-article__image js-sr--main">
-                      <img src="/img/image4.jpg" />
+                      <img src="/img/image4.jpg" alt="정호령" />
                     </div>
                   </div>
                   <div className="col-md-6 col-sm-7 align-self-center">
