@@ -15,6 +15,7 @@
 }
 .groupexp__list-item{
   position: absolute;
+  min-width: 60px;
   opacity: 0;
 }
 .groupexp__list-item:nth-child(1){
