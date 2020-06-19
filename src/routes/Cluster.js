@@ -121,6 +121,9 @@ class Cluster extends React.Component {
         <div className="groupexp">
         <img className="groupexp__image"src={`${imgSrc}?${imageHash}`} alt="cluster" />
         <div className="groupexp__text">
+        <h2 className="explanation"> 정보를 보려면 각 구에</h2>
+        <h2 className="explanation"> 마우스를 대보세요</h2>
+        <div className="space"></div>
           <h2 className="groupexp__title">{cityTitle}</h2>
           <ul>
             <li className="groupexp__list-item">
@@ -138,6 +141,7 @@ class Cluster extends React.Component {
           </ul>
         </div>
         </div>
+        <div className="chartDescription">
         <ExpansionPanel>
           <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
@@ -156,6 +160,7 @@ x축에 해당하는 PC1 변수는 자전거 인프라(전용도로길이, 대�
           </ExpansionPanelDetails>
         </ExpansionPanel>
         <Comment id="1" page="cluster" />
+      </div>
       </div>
       </div>
     );

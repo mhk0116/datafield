@@ -1,10 +1,31 @@
+.chartRoot {
+  width: 100%;
+  height: 100%;
+  min-height: 100vh;
+  background-color: white;
+  /* text-align: center; */
+}
+
+.chartDescription {
+  font-family: "Nanum Gothic";
+  width: 1000px;
+  margin-left: 10%;
+}
+.explanation{
+  font-family: "Nanum Gothic";
+  font-weight: 700;
+  position: relative;
+}
+.space{
+  margin-bottom: 15%
+}
 .groupexp{
   display: flex;
   align-items: center;
 }
 .groupexp__image{
-  height:70%;
-  width:70%;
+  height:68%;
+  width:68%;
   margin-top:0;
 }
 .groupexp__text{

@@ -14,7 +14,7 @@ import {
     staggerRevealClose
   } from "./Animations.js";
 
-  import kibanareport from "./images/kibanareport.png";
+  import kibanareport from "./images/kibanareport.JPG";
   import prediction from "./images/prediction.png";
   import wordcloud from "./images/wordcloud.png";
   import grouping from "./images/grouping.JPG";
